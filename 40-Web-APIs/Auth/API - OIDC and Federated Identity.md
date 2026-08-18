@@ -9,8 +9,10 @@ tags:
   - api/auth
   - api/oidc
   - api/security
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: false
 related:
   - "[[API - OAuth 2.0 Flows]]"
   - "[[API - JWT]]"

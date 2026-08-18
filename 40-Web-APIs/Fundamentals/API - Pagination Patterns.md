@@ -8,8 +8,10 @@ danger: low
 tags:
   - api/http
   - api/pagination
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: false
 related:
   - "[[API - Headers]]"
   - "[[API - REST vs GraphQL]]"
@@ -17,7 +19,7 @@ related:
   - "[[GitHub - GraphQL API]]"
   - "[[Bridge - GitHub API Conventions]]"
 sources:
-  - https://www.rfc-editor.org/rfc/rfc8288.html
+  - https://datatracker.ietf.org/doc/html/rfc8288
   - https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api
   - https://graphql.org/learn/pagination/
 updated: 2026-08-18
@@ -87,14 +89,24 @@ Link: <https://api.github.com/user/repos?page=3>; rel="next",
 `rel` values are `next`, `prev`, `first`, `last`. Cursor-based endpoints emit
 `next` but no `last`, since the total is unknown.
 
-```js
-async function* paginate(url, headers) {
-  while (url) {
-    const res = await fetch(url, { headers });
-    if (!res.ok) throw new HttpError(res.status, await res.text());
-    yield* await res.json();
-    url = parseLink(res.headers.get("link"))?.next ?? null;
-  }
+```kotlin
+fun paginate(firstUrl: String): Flow<Item> = flow {
+    var url: String? = firstUrl
+
+    while (url != null) {
+        val request = Request.Builder().url(url!!).build()
+
+        val page = client.newCall(request).execute().use { res ->
+            if (!res.isSuccessful) throw HttpException(res.code, res.message)
+            val items = json.decodeFromString<List<Item>>(
+                res.body?.string().orEmpty(),
+            )
+            url = parseLink(res.header("Link"))?.next   // null when no rel="next"
+            items
+        }
+
+        page.forEach { emit(it) }
+    }
 }
 ```
 
@@ -155,6 +167,6 @@ request count — see [[API - REST vs GraphQL]] and [[GitHub - GraphQL API]].
 
 ## Sources
 
-- <https://www.rfc-editor.org/rfc/rfc8288.html>
+- <https://datatracker.ietf.org/doc/html/rfc8288>
 - <https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api>
 - <https://graphql.org/learn/pagination/>

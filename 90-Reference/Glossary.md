@@ -53,12 +53,18 @@ commit.
 `If-Modified-Since`) so the server can answer `304 Not Modified` instead of
 resending the body.
 
+**Confidential client** — an OAuth client that can keep a secret, because it
+runs on a server you control. The opposite of a public client.
+
 **Cursor** — an opaque token marking a position in a result set, used for
 pagination that stays correct while the collection is being written to.
 
 **DAG** — directed acyclic graph. The shape of Git history.
 
 **Detached HEAD** — HEAD points at a commit instead of a branch.
+
+**Device authorization flow** — an OAuth grant for input-constrained clients:
+the device shows a code, the user approves it on another device (RFC 8628).
 
 **ETag** — an opaque version identifier for a representation of a resource.
 Strong means byte-identical; weak (`W/` prefix) means semantically equivalent.
@@ -126,6 +132,10 @@ the start of an OAuth flow, so a stolen authorization code is unusable.
 
 **Porcelain** — user-facing commands (`add`, `commit`). Contrast: **plumbing**,
 the low-level scriptable commands (`cat-file`, `rev-parse`).
+
+**Public client** — an OAuth client that cannot keep a secret: mobile, SPA,
+desktop, CLI. Anything shipped to a user can be decompiled, so PKCE is
+mandatory and no client secret may be embedded.
 
 **Pull** — fetch plus merge or rebase.
 

@@ -9,8 +9,10 @@ tags:
   - bridge
   - api/rest
   - github/api
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: true
 related:
   - "[[API - REST vs GraphQL]]"
   - "[[API - Pagination Patterns]]"
@@ -61,9 +63,11 @@ success-shaped responses. This note is the diff.
 a matching entry in `errors`. A client that checks only the status code renders
 missing data as legitimately absent.
 
-```js
-const body = await res.json();
-if (body.errors?.length) throw new GraphQLError(body.errors);
+```kotlin
+val body = json.decodeFromString<GraphQlResponse<T>>(
+    res.body?.string().orEmpty(),
+)
+if (!body.errors.isNullOrEmpty()) throw GraphQlException(body.errors)
 ```
 
 Genuine transport failures still use status codes, and rate limiting in GraphQL

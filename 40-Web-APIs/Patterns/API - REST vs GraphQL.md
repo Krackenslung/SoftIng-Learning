@@ -8,8 +8,10 @@ danger: none
 tags:
   - api/rest
   - api/graphql
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: true
 related:
   - "[[API - Pagination Patterns]]"
   - "[[API - Rate Limiting Strategies]]"
@@ -19,7 +21,7 @@ related:
   - "[[API - JSON YAML and TOML]]"
 sources:
   - https://graphql.org/learn/
-  - https://www.rfc-editor.org/rfc/rfc9110.html
+  - https://datatracker.ietf.org/doc/html/rfc9110
   - https://docs.github.com/en/graphql/overview/about-the-graphql-api
 updated: 2026-08-18
 ---
@@ -143,5 +145,5 @@ and REST for everything else, which is how most GitHub integrations end up.
 ## Sources
 
 - <https://graphql.org/learn/>
-- <https://www.rfc-editor.org/rfc/rfc9110.html>
+- <https://datatracker.ietf.org/doc/html/rfc9110>
 - <https://docs.github.com/en/graphql/overview/about-the-graphql-api>

@@ -8,8 +8,10 @@ danger: none
 tags:
   - api/http
   - api/rest
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: false
 related:
   - "[[API - Headers]]"
   - "[[API - Idempotency and Retries]]"
@@ -18,7 +20,7 @@ related:
 sources:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
-  - https://www.rfc-editor.org/rfc/rfc9110.html
+  - https://datatracker.ietf.org/doc/html/rfc9110
 updated: 2026-08-18
 ---
 
@@ -86,25 +88,28 @@ The individual codes worth memorising:
 
 ## Reading a response correctly
 
-```js
-const res = await fetch(url, { headers });
+```kotlin
+client.newCall(request).execute().use { res ->
+    if (res.code == 304) return cached          // no body at all
+    if (res.code == 204) return null            // no body at all
 
-if (res.status === 304) return cached;   // no body at all
-if (res.status === 204) return null;     // no body at all
-if (!res.ok) throw new HttpError(res.status, await res.text());
+    val body = res.body?.string().orEmpty()
+    if (!res.isSuccessful) throw HttpException(res.code, body)
 
-return res.json();
+    return json.decodeFromString<Repo>(body)
+}
 ```
 
-`fetch` does **not** throw on 4xx or 5xx — only on network failure. `res.ok` is
-true only for 200–299.
+OkHttp does **not** throw on 4xx or 5xx — `execute()` raises `IOException`
+only on transport failure. `isSuccessful` is true only for 200–299, and every
+HTTP client worth using behaves the same way.
 
 ## ⚠️ Gotchas
 
-- ⚠️ **A non-2xx response is not an exception.** Calling `res.json()` without
-  checking `res.ok` silently parses an error page as data, and the bug surfaces
-  much later as a missing field. This is the most common defect in hand-rolled
-  API clients.
+- ⚠️ **A non-2xx response is not an exception.** Deserialising the body without
+  checking `isSuccessful` silently parses an error page as data, and the bug
+  surfaces much later as a missing field. This is the most common defect in
+  hand-rolled API clients.
 - ⚠️ **401 means unauthenticated, 403 means unauthorized.** The names are
   historically backwards. 401 is "your token is missing, expired or malformed";
   403 is "your token is fine, your permissions are not."
@@ -117,8 +122,8 @@ true only for 200–299.
   can double-charge, double-comment or double-create.
 - **202 is not success.** It means "accepted, maybe later". You must poll the
   status URL to find out what actually happened.
-- **204 and 304 have no body.** Calling `.json()` on either throws a parse
-  error that looks like a server fault but is entirely client-side.
+- **204 and 304 have no body.** Deserialising either throws a parse error that
+  looks like a server fault but is entirely client-side.
 - **`GET` with a request body** is not portable and is widely dropped by
   proxies. If a query is too large for a URL, the API has to offer a
   `POST /search` variant.
@@ -141,4 +146,4 @@ true only for 200–299.
 
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status>
-- <https://www.rfc-editor.org/rfc/rfc9110.html>
+- <https://datatracker.ietf.org/doc/html/rfc9110>

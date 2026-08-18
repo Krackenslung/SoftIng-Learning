@@ -38,12 +38,16 @@ deviates from the generic behaviour described here, that divergence lives in
 - [[API - JWT]] — structure, signing, `alg: none`, claim validation
 - [[API - HMAC Signatures]] — webhook verification, constant-time comparison
 - [[API - OIDC and Federated Identity]] — identity on top of OAuth, keyless CI
+- [[API - Token Storage on Public Clients]] — Keystore, Keychain, and why an
+  app can hold no secret
 
 ## Patterns
 
 - [[API - REST vs GraphQL]] — over-fetching, round trips, cost models
 - [[API - Webhooks vs Polling]] — push vs pull, delivery guarantees
 - [[API - Rate Limiting Strategies]] — token bucket, leaky bucket, sliding window
+- [[API - Client-Only vs Backend Architectures]] — the Option A decision and
+  everything it determines
 
 ## Data formats
 

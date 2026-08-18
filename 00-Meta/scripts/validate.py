@@ -15,8 +15,8 @@ import re
 import sys
 from collections import defaultdict
 
-# Files that live in the vault but are not notes.
-EXCLUDE = {"claude-code-prompt-web-apis.md"}
+# Files that live in the vault but are not notes: agent context and specs.
+EXCLUDE = {"CLAUDE.md", "claude-code-prompt-web-apis.md"}
 
 # Notes that are entry points and so are never "linked from" anywhere.
 ORPHAN_EXEMPT = {"Home"}

@@ -8,8 +8,10 @@ danger: medium
 tags:
   - api/limits
   - api/patterns
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: true
 related:
   - "[[API - Idempotency and Retries]]"
   - "[[API - Caching and ETags]]"
@@ -17,8 +19,9 @@ related:
   - "[[GitHub - Rate Limits]]"
   - "[[API - HTTP Methods and Status Codes]]"
   - "[[Bridge - GitHub API Conventions]]"
+  - "[[API - Client-Only vs Backend Architectures]]"
 sources:
-  - https://www.rfc-editor.org/rfc/rfc6585.html
+  - https://datatracker.ietf.org/doc/html/rfc6585
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After
   - https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
 updated: 2026-08-18
@@ -64,12 +67,20 @@ x-ratelimit-reset: 1755500000      # Unix seconds, not a duration
 Read these on **every** response, not only after a rejection. A client that
 first looks at `remaining` when it sees a 429 has already lost.
 
-```js
-function budget(res) {
-  const remaining = Number(res.headers.get("x-ratelimit-remaining"));
-  const resetAt = Number(res.headers.get("x-ratelimit-reset")) * 1000;
-  const secondsLeft = Math.max(0, (resetAt - Date.now()) / 1000);
-  return { remaining, resetAt, safeRatePerSec: remaining / (secondsLeft + 1) };
+```kotlin
+data class Budget(
+    val remaining: Int,
+    val resetAt: Long,
+    val safeRatePerSec: Double,
+)
+
+fun budget(res: Response): Budget {
+    val remaining = res.header("x-ratelimit-remaining")?.toIntOrNull() ?: 0
+    val resetAt = (res.header("x-ratelimit-reset")?.toLongOrNull() ?: 0L) * 1000
+    val secondsLeft =
+        ((resetAt - System.currentTimeMillis()) / 1000).coerceAtLeast(0)
+
+    return Budget(remaining, resetAt, remaining / (secondsLeft + 1.0))
 }
 ```
 
@@ -149,9 +160,10 @@ separate stricter limit to expensive endpoints such as search.
 - [[GitHub - Rate Limits]]
 - [[API - HTTP Methods and Status Codes]]
 - [[Bridge - GitHub API Conventions]]
+- [[API - Client-Only vs Backend Architectures]]
 
 ## Sources
 
-- <https://www.rfc-editor.org/rfc/rfc6585.html>
+- <https://datatracker.ietf.org/doc/html/rfc6585>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After>
 - <https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api>

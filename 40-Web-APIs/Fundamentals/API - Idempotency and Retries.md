@@ -8,15 +8,17 @@ danger: high
 tags:
   - api/http
   - api/reliability
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: true
 related:
   - "[[API - HTTP Methods and Status Codes]]"
   - "[[API - Rate Limiting Strategies]]"
   - "[[API - Webhooks vs Polling]]"
   - "[[GitHub - REST API]]"
 sources:
-  - https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2
+  - https://datatracker.ietf.org/doc/html/rfc9110#section-9.2.2
   - https://developer.mozilla.org/en-US/docs/Glossary/Idempotent
   - https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/
 updated: 2026-08-18
@@ -72,18 +74,24 @@ creating a second row.
 
 ## Backoff with jitter
 
-```js
-async function withRetry(fn, { attempts = 5, base = 500, cap = 30_000 } = {}) {
-  for (let i = 0; ; i++) {
-    try {
-      return await fn();
-    } catch (err) {
-      if (i >= attempts - 1 || !isRetryable(err)) throw err;
-      const ceiling = Math.min(cap, base * 2 ** i);
-      const delay = Math.random() * ceiling;        // full jitter
-      await sleep(err.retryAfterMs ?? delay);
+```kotlin
+suspend fun <T> withRetry(
+    attempts: Int = 5,
+    baseMs: Long = 500,
+    capMs: Long = 30_000,
+    block: suspend () -> T,
+): T {
+    repeat(attempts - 1) { i ->
+        try {
+            return block()
+        } catch (e: IOException) {
+            if (!isRetryable(e)) throw e
+            val ceiling = minOf(capMs, baseMs shl i)
+            val jittered = Random.nextLong(ceiling)      // full jitter
+            delay(retryAfterMs(e) ?: jittered)
+        }
     }
-  }
+    return block()                                       // last attempt
 }
 ```
 
@@ -157,6 +165,6 @@ precisely when a dependency is least able to take it. Two controls bound that:
 
 ## Sources
 
-- <https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2>
+- <https://datatracker.ietf.org/doc/html/rfc9110#section-9.2.2>
 - <https://developer.mozilla.org/en-US/docs/Glossary/Idempotent>
 - <https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/>

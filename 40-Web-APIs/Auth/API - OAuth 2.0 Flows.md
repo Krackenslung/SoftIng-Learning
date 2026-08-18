@@ -8,17 +8,20 @@ danger: medium
 tags:
   - api/auth
   - api/oauth
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: true
 related:
   - "[[API - JWT]]"
   - "[[API - OIDC and Federated Identity]]"
   - "[[GitHub - Authentication]]"
   - "[[Bridge - Auth SSH HTTPS and Tokens]]"
+  - "[[API - Token Storage on Public Clients]]"
 sources:
-  - https://www.rfc-editor.org/rfc/rfc6749.html
-  - https://www.rfc-editor.org/rfc/rfc7636.html
-  - https://www.rfc-editor.org/rfc/rfc9700.html
+  - https://datatracker.ietf.org/doc/html/rfc6749
+  - https://datatracker.ietf.org/doc/html/rfc7636
+  - https://datatracker.ietf.org/doc/html/rfc9700
 updated: 2026-08-18
 ---
 
@@ -76,11 +79,16 @@ legitimate client never transmitted.
 5. server  <- { access_token, refresh_token, expires_in, scope }
 ```
 
-```js
-const verifier = base64url(crypto.getRandomValues(new Uint8Array(32)));
-const challenge = base64url(
-  await crypto.subtle.digest("SHA-256", new TextEncoder().encode(verifier)),
-);
+```kotlin
+private const val B64 = Base64.URL_SAFE or Base64.NO_PADDING or Base64.NO_WRAP
+
+val verifier = ByteArray(32)
+    .also { SecureRandom().nextBytes(it) }
+    .let { Base64.encodeToString(it, B64) }
+
+val challenge = MessageDigest.getInstance("SHA-256")
+    .digest(verifier.toByteArray())
+    .let { Base64.encodeToString(it, B64) }
 ```
 
 Originally a mobile-only mitigation, PKCE is now recommended for **every**
@@ -149,9 +157,10 @@ the whole family should be revoked.
 - [[API - OIDC and Federated Identity]]
 - [[GitHub - Authentication]]
 - [[Bridge - Auth SSH HTTPS and Tokens]]
+- [[API - Token Storage on Public Clients]]
 
 ## Sources
 
-- <https://www.rfc-editor.org/rfc/rfc6749.html>
-- <https://www.rfc-editor.org/rfc/rfc7636.html>
-- <https://www.rfc-editor.org/rfc/rfc9700.html>
+- <https://datatracker.ietf.org/doc/html/rfc6749>
+- <https://datatracker.ietf.org/doc/html/rfc7636>
+- <https://datatracker.ietf.org/doc/html/rfc9700>

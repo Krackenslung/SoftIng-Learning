@@ -8,16 +8,19 @@ danger: high
 tags:
   - api/auth
   - api/jwt
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: false
 related:
   - "[[API - OAuth 2.0 Flows]]"
   - "[[API - OIDC and Federated Identity]]"
   - "[[API - HMAC Signatures]]"
   - "[[GitHub - Bots and Apps]]"
+  - "[[API - Token Storage on Public Clients]]"
 sources:
-  - https://www.rfc-editor.org/rfc/rfc7519.html
-  - https://www.rfc-editor.org/rfc/rfc8725.html
+  - https://datatracker.ietf.org/doc/html/rfc7519
+  - https://datatracker.ietf.org/doc/html/rfc8725
   - https://jwt.io/introduction
 updated: 2026-08-18
 ---
@@ -152,9 +155,10 @@ is supplied by the attacker.
 - [[API - OIDC and Federated Identity]]
 - [[API - HMAC Signatures]]
 - [[GitHub - Bots and Apps]]
+- [[API - Token Storage on Public Clients]]
 
 ## Sources
 
-- <https://www.rfc-editor.org/rfc/rfc7519.html>
-- <https://www.rfc-editor.org/rfc/rfc8725.html>
+- <https://datatracker.ietf.org/doc/html/rfc7519>
+- <https://datatracker.ietf.org/doc/html/rfc8725>
 - <https://jwt.io/introduction>

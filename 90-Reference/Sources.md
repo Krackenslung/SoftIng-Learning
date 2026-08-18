@@ -56,23 +56,36 @@ link-rot audits.
 | MDN — HTTP headers | <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers> |
 | MDN — `ETag` | <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/ETag> |
 | MDN — `Retry-After` | <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After> |
-| RFC 9110 — HTTP Semantics | <https://www.rfc-editor.org/rfc/rfc9110.html> |
-| RFC 9111 — HTTP Caching | <https://www.rfc-editor.org/rfc/rfc9111.html> |
-| RFC 8288 — Web Linking (`Link` header) | <https://www.rfc-editor.org/rfc/rfc8288.html> |
-| RFC 6585 — Additional status codes (429) | <https://www.rfc-editor.org/rfc/rfc6585.html> |
-| RFC 6749 — OAuth 2.0 | <https://www.rfc-editor.org/rfc/rfc6749.html> |
-| RFC 7636 — PKCE | <https://www.rfc-editor.org/rfc/rfc7636.html> |
-| RFC 9700 — OAuth 2.0 Security BCP | <https://www.rfc-editor.org/rfc/rfc9700.html> |
-| RFC 7519 — JSON Web Token | <https://www.rfc-editor.org/rfc/rfc7519.html> |
-| RFC 8725 — JWT Best Current Practices | <https://www.rfc-editor.org/rfc/rfc8725.html> |
-| RFC 2104 — HMAC | <https://www.rfc-editor.org/rfc/rfc2104.html> |
-| RFC 8259 — JSON | <https://www.rfc-editor.org/rfc/rfc8259.html> |
+| RFC 9110 — HTTP Semantics | <https://datatracker.ietf.org/doc/html/rfc9110> |
+| RFC 9111 — HTTP Caching | <https://datatracker.ietf.org/doc/html/rfc9111> |
+| RFC 8288 — Web Linking (`Link` header) | <https://datatracker.ietf.org/doc/html/rfc8288> |
+| RFC 6585 — Additional status codes (429) | <https://datatracker.ietf.org/doc/html/rfc6585> |
+| RFC 6749 — OAuth 2.0 | <https://datatracker.ietf.org/doc/html/rfc6749> |
+| RFC 7636 — PKCE | <https://datatracker.ietf.org/doc/html/rfc7636> |
+| RFC 9700 — OAuth 2.0 Security BCP | <https://datatracker.ietf.org/doc/html/rfc9700> |
+| RFC 7519 — JSON Web Token | <https://datatracker.ietf.org/doc/html/rfc7519> |
+| RFC 8725 — JWT Best Current Practices | <https://datatracker.ietf.org/doc/html/rfc8725> |
+| RFC 2104 — HMAC | <https://datatracker.ietf.org/doc/html/rfc2104> |
+| RFC 8259 — JSON | <https://datatracker.ietf.org/doc/html/rfc8259> |
 | OpenID Connect Core 1.0 | <https://openid.net/specs/openid-connect-core-1_0.html> |
 | OpenID Connect Discovery 1.0 | <https://openid.net/specs/openid-connect-discovery-1_0.html> |
 | GraphQL — Learn | <https://graphql.org/learn/> |
 | YAML 1.2.2 spec | <https://yaml.org/spec/1.2.2/> |
 | TOML v1.0.0 | <https://toml.io/en/v1.0.0> |
 | jwt.io — Introduction | <https://jwt.io/introduction> |
+| RFC 8252 — OAuth 2.0 for Native Apps | <https://datatracker.ietf.org/doc/html/rfc8252> |
+| RFC 8628 — OAuth 2.0 Device Authorization Grant | <https://datatracker.ietf.org/doc/html/rfc8628> |
+
+## Primary — Android
+
+Sources for the planned `60-Android` domain and the mobile-relevant API notes.
+Version numbers and library status must be checked here, never assumed.
+
+| Resource | URL |
+|---|---|
+| Android developers | <https://developer.android.com> |
+| Android Keystore system | <https://developer.android.com/privacy-and-security/keystore> |
+| WorkManager | <https://developer.android.com/topic/libraries/architecture/workmanager> |
 
 ## Conventions & standards
 

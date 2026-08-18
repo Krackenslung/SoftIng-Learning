@@ -8,18 +8,21 @@ danger: low
 tags:
   - api/http
   - api/caching
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: true
 related:
   - "[[API - Headers]]"
   - "[[API - HTTP Methods and Status Codes]]"
   - "[[GitHub - REST API]]"
   - "[[GitHub - Rate Limits]]"
   - "[[API - Rate Limiting Strategies]]"
+  - "[[API - Client-Only vs Backend Architectures]]"
 sources:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/ETag
-  - https://www.rfc-editor.org/rfc/rfc9111.html
-  - https://www.rfc-editor.org/rfc/rfc9110.html#section-13
+  - https://datatracker.ietf.org/doc/html/rfc9111
+  - https://datatracker.ietf.org/doc/html/rfc9110#section-13
 updated: 2026-08-18
 ---
 
@@ -94,16 +97,20 @@ The read pair saves bandwidth. The **write** pair is optimistic concurrency
 control: send `If-Match` with the ETag you read, and a 412 tells you someone
 else edited the resource first, instead of you silently clobbering them.
 
-```js
-const res = await fetch(url, {
-  headers: { ...auth, "If-None-Match": store.etag ?? "" },
-});
+```kotlin
+val request = Request.Builder()
+    .url(url)
+    .header("Authorization", "Bearer " + token)
+    .apply { store.etag?.let { header("If-None-Match", it) } }
+    .build()
 
-if (res.status === 304) return store.body;      // no body, no re-parse
+client.newCall(request).execute().use { res ->
+    if (res.code == 304) return store.body      // no body, nothing to re-parse
 
-store.etag = res.headers.get("etag");
-store.body = await res.json();
-return store.body;
+    store.etag = res.header("ETag")
+    store.body = res.body?.string().orEmpty()
+    return store.body
+}
 ```
 
 ## Why a 304 is cheap
@@ -121,8 +128,8 @@ allow. See [[GitHub - Rate Limits]] and [[GitHub - REST API]].
 - ⚠️ **Honour `Vary`.** If the response says `Vary: Accept, Authorization`,
   those headers are part of the cache key. Ignoring it is the same bug as above,
   one layer down — see [[API - Headers]].
-- ⚠️ **A 304 has no body.** Return the stored copy; calling `.json()` on the
-  304 response itself throws.
+- ⚠️ **A 304 has no body.** Return the stored copy; deserialising the 304
+  response itself throws.
 - ⚠️ **Store the ETag with the data it validates, atomically.** If a crash
   persists the new ETag but not the new body, every later request 304s against
   stale content and the cache never self-corrects. This failure is silent and
@@ -150,9 +157,10 @@ allow. See [[GitHub - Rate Limits]] and [[GitHub - REST API]].
 - [[GitHub - REST API]]
 - [[GitHub - Rate Limits]]
 - [[API - Rate Limiting Strategies]]
+- [[API - Client-Only vs Backend Architectures]]
 
 ## Sources
 
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/ETag>
-- <https://www.rfc-editor.org/rfc/rfc9111.html>
-- <https://www.rfc-editor.org/rfc/rfc9110.html#section-13>
+- <https://datatracker.ietf.org/doc/html/rfc9111>
+- <https://datatracker.ietf.org/doc/html/rfc9110#section-13>

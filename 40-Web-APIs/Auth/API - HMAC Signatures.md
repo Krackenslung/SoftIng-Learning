@@ -9,15 +9,17 @@ tags:
   - api/auth
   - api/webhooks
   - api/security
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: false
 related:
   - "[[API - JWT]]"
   - "[[API - Webhooks vs Polling]]"
   - "[[API - Headers]]"
   - "[[GitHub - Webhooks]]"
 sources:
-  - https://www.rfc-editor.org/rfc/rfc2104.html
+  - https://datatracker.ietf.org/doc/html/rfc2104
   - https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries
   - https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b
 updated: 2026-08-18
@@ -165,6 +167,6 @@ nothing, whereas a leaked token grants everything.
 
 ## Sources
 
-- <https://www.rfc-editor.org/rfc/rfc2104.html>
+- <https://datatracker.ietf.org/doc/html/rfc2104>
 - <https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries>
 - <https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b>

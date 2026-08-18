@@ -8,8 +8,10 @@ danger: none
 tags:
   - api/http
   - api/headers
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: false
 related:
   - "[[API - HTTP Methods and Status Codes]]"
   - "[[API - Caching and ETags]]"
@@ -18,8 +20,8 @@ related:
   - "[[API - JSON YAML and TOML]]"
 sources:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers
-  - https://www.rfc-editor.org/rfc/rfc9110.html
-  - https://www.rfc-editor.org/rfc/rfc8288.html
+  - https://datatracker.ietf.org/doc/html/rfc9110
+  - https://datatracker.ietf.org/doc/html/rfc8288
 updated: 2026-08-18
 ---
 
@@ -49,10 +51,10 @@ Header **names are case-insensitive**. HTTP/2 and HTTP/3 additionally require
 them to be sent lowercase on the wire, which is why response headers usually
 appear lowercase in a debugger even when the docs capitalise them.
 
-```js
-// Both work — the Headers object normalises case for you.
-res.headers.get("ETag");
-res.headers.get("etag");
+```kotlin
+// Both work - OkHttp matches header names case-insensitively.
+res.header("ETag")
+res.header("etag")
 ```
 
 Values are ASCII. Non-ASCII needs encoding (RFC 8187), which is why
@@ -115,8 +117,8 @@ mint new `X-` names in your own APIs.
   standing injection risk. Never interpolate one into a database query or a
   command line.
 - ⚠️ **Duplicate headers do not always merge.** Most repeated headers combine
-  into a comma-separated list, but `Set-Cookie` is exempt. `headers.get()`
-  returns a joined string; use `headers.getSetCookie()` for cookies.
+  into a comma-separated list, but `Set-Cookie` is exempt. `res.header(name)`
+  returns only the last value; use `res.headers(name)` to get all of them.
 - **A missing `User-Agent` is a hard failure on some APIs**, GitHub included,
   which returns 403. Set a descriptive one naming your application.
 - **Do not log the `Authorization` header.** It is the most common way a token
@@ -143,5 +145,5 @@ mint new `X-` names in your own APIs.
 ## Sources
 
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers>
-- <https://www.rfc-editor.org/rfc/rfc9110.html>
-- <https://www.rfc-editor.org/rfc/rfc8288.html>
+- <https://datatracker.ietf.org/doc/html/rfc9110>
+- <https://datatracker.ietf.org/doc/html/rfc8288>

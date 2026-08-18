@@ -11,6 +11,7 @@ related:
   - "[[API - Caching and ETags]]"
   - "[[API - Pagination Patterns]]"
   - "[[Bridge - GitHub API Conventions]]"
+  - "[[API - Client-Only vs Backend Architectures]]"
 updated: 2026-08-14
 ---
 

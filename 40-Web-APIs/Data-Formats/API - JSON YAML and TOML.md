@@ -8,15 +8,17 @@ danger: medium
 tags:
   - api/formats
   - api/yaml
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: false
 related:
   - "[[API - Headers]]"
   - "[[API - REST vs GraphQL]]"
   - "[[GitHub - Actions]]"
   - "[[GitHub - Actions Advanced]]"
 sources:
-  - https://www.rfc-editor.org/rfc/rfc8259.html
+  - https://datatracker.ietf.org/doc/html/rfc8259
   - https://yaml.org/spec/1.2.2/
   - https://toml.io/en/v1.0.0
 updated: 2026-08-18
@@ -180,6 +182,6 @@ triggers. Quoting the key (`"on":`) is valid YAML and removes the ambiguity.
 
 ## Sources
 
-- <https://www.rfc-editor.org/rfc/rfc8259.html>
+- <https://datatracker.ietf.org/doc/html/rfc8259>
 - <https://yaml.org/spec/1.2.2/>
 - <https://toml.io/en/v1.0.0>

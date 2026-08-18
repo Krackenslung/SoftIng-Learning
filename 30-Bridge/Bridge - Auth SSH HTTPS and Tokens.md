@@ -20,6 +20,7 @@ related:
   - "[[API - OAuth 2.0 Flows]]"
   - "[[API - JWT]]"
   - "[[API - OIDC and Federated Identity]]"
+  - "[[API - Token Storage on Public Clients]]"
 sources:
   - https://git-scm.com/docs/gitcredentials
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh
@@ -103,6 +104,7 @@ See [[GitHub - Authentication]] for the full token matrix.
 - [[API - OAuth 2.0 Flows]]
 - [[API - JWT]]
 - [[API - OIDC and Federated Identity]]
+- [[API - Token Storage on Public Clients]]
 
 ## Sources
 

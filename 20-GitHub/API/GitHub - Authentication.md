@@ -20,6 +20,7 @@ related:
   - "[[Bridge - Auth SSH HTTPS and Tokens]]"
   - "[[API - OAuth 2.0 Flows]]"
   - "[[API - JWT]]"
+  - "[[API - Token Storage on Public Clients]]"
 sources:
   - https://docs.github.com/en/authentication
   - https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
@@ -101,6 +102,7 @@ Distinguish them in your UI or users will chase phantom bugs.
 - [[Bridge - Auth SSH HTTPS and Tokens]]
 - [[API - OAuth 2.0 Flows]]
 - [[API - JWT]]
+- [[API - Token Storage on Public Clients]]
 
 ## Sources
 

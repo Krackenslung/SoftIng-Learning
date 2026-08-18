@@ -8,17 +8,20 @@ danger: low
 tags:
   - api/webhooks
   - api/patterns
-commands: []
+commands: []endpoints: []
+
 dashboard_relevant: true
+mobile_relevant: true
 related:
   - "[[API - HMAC Signatures]]"
   - "[[API - Idempotency and Retries]]"
   - "[[API - Caching and ETags]]"
   - "[[GitHub - Webhooks]]"
+  - "[[API - Client-Only vs Backend Architectures]]"
 sources:
   - https://docs.github.com/en/webhooks/about-webhooks
   - https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api
-  - https://www.rfc-editor.org/rfc/rfc9110.html
+  - https://datatracker.ietf.org/doc/html/rfc9110
 updated: 2026-08-18
 ---
 
@@ -50,11 +53,19 @@ publicly reachable server?** If not, the decision is already made.
 Polling is not automatically wasteful. Conditional requests turn "nothing
 changed" into a nearly free answer:
 
-```js
-const res = await fetch(url, {
-  headers: { ...auth, "If-None-Match": store.etag ?? "" },
-});
-if (res.status === 304) return store.data;   // no body, and on GitHub no quota
+```kotlin
+val request = Request.Builder()
+    .url(url)
+    .apply { store.etag?.let { header("If-None-Match", it) } }
+    .build()
+
+client.newCall(request).execute().use { res ->
+    // 304 means no body, and on GitHub it costs no core quota.
+    if (res.code == 304) return store.data
+    store.etag = res.header("ETag")
+    store.data = json.decodeFromString(res.body?.string().orEmpty())
+    return store.data
+}
 ```
 
 Three rules make a poller well-behaved:
@@ -140,9 +151,10 @@ keeps it true.
 - [[API - Idempotency and Retries]]
 - [[API - Caching and ETags]]
 - [[GitHub - Webhooks]]
+- [[API - Client-Only vs Backend Architectures]]
 
 ## Sources
 
 - <https://docs.github.com/en/webhooks/about-webhooks>
 - <https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api>
-- <https://www.rfc-editor.org/rfc/rfc9110.html>
+- <https://datatracker.ietf.org/doc/html/rfc9110>
