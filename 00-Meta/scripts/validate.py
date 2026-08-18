@@ -16,7 +16,7 @@ import sys
 from collections import defaultdict
 
 # Files and directories that live in the vault but are not notes.
-EXCLUDE = {"CLAUDE.md"}
+EXCLUDE = {"CLAUDE.md", "README.md"}
 EXCLUDE_DIRS = {"00-Meta/specs"}
 
 # Notes that are entry points and so are never "linked from" anywhere.
