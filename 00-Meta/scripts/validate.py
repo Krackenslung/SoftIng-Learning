@@ -15,8 +15,9 @@ import re
 import sys
 from collections import defaultdict
 
-# Files that live in the vault but are not notes: agent context and specs.
-EXCLUDE = {"CLAUDE.md", "claude-code-prompt-web-apis.md"}
+# Files and directories that live in the vault but are not notes.
+EXCLUDE = {"CLAUDE.md"}
+EXCLUDE_DIRS = {"00-Meta/specs"}
 
 # Notes that are entry points and so are never "linked from" anywhere.
 ORPHAN_EXEMPT = {"Home"}
@@ -42,6 +43,10 @@ def strip_code(text: str) -> str:
 def collect(root: str) -> list[str]:
     out = []
     for dirpath, dirnames, filenames in os.walk(root):
+        rel = os.path.relpath(dirpath, root).replace(os.sep, "/")
+        if rel in EXCLUDE_DIRS:
+            dirnames[:] = []
+            continue
         dirnames[:] = [d for d in dirnames if not d.startswith(".")]
         for name in filenames:
             if name.endswith(".md") and name not in EXCLUDE:

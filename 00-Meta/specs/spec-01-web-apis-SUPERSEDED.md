@@ -1,3 +1,21 @@
+> [!warning] Obsoleto — ejecutado y superado
+> Este spec se ejecutó por completo el 2026-08-18. Se conserva como registro
+> histórico. **No lo uses como referencia de convenciones.**
+>
+> Quedó desfasado en tres puntos:
+>
+> - **Es anterior a la decisión de arquitectura.** No fija si el dashboard lleva
+>   backend, y por tanto deja abierto si los webhooks son viables. No lo son en
+>   un cliente Android: un teléfono no tiene endpoint público donde recibirlos,
+>   así que el polling es el único mecanismo. La decisión y todo lo que arrastra
+>   están en [[API - Client-Only vs Backend Architectures]].
+> - **Pide JS/TS para los ejemplos de cliente.** La convención vigente es
+>   **Kotlin**, porque el cliente es Android.
+> - **Su esquema de frontmatter está incompleto**: le faltan `mobile_relevant` y
+>   `endpoints`, hoy obligatorios.
+>
+> Las convenciones vigentes están en `CLAUDE.md` y en [[Vault Structure]].
+
 # Claude Code prompt — build `40-Web-APIs`
 
 > Paste everything below the line into Claude Code, from inside your vault
