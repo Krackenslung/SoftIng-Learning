@@ -18,6 +18,8 @@ related:
   - "[[GitHub - Authentication]]"
   - "[[Bridge - Auth SSH HTTPS and Tokens]]"
   - "[[API - Token Storage on Public Clients]]"
+  - "[[Android - Navigation]]"
+  - "[[Android - Keystore and Secure Storage]]"
 sources:
   - https://datatracker.ietf.org/doc/html/rfc6749
   - https://datatracker.ietf.org/doc/html/rfc7636
@@ -158,6 +160,8 @@ the whole family should be revoked.
 - [[GitHub - Authentication]]
 - [[Bridge - Auth SSH HTTPS and Tokens]]
 - [[API - Token Storage on Public Clients]]
+- [[Android - Navigation]]
+- [[Android - Keystore and Secure Storage]]
 
 ## Sources
 

@@ -13,6 +13,7 @@ related:
   - "[[Git - Mental Model]]"
   - "[[Git - Internals]]"
   - "[[Web-APIs]]"
+  - "[[Android]]"
 sources:
   - https://git-scm.com/docs/gitglossary
   - https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
@@ -23,6 +24,10 @@ updated: 2026-08-14
 
 
 **Ancestor** — a commit reachable by following parent links backwards.
+
+**App Link** — an `https` deep link a single app owns, proven by a signed
+association file on the domain. Unlike a custom scheme, no other app can claim
+it, which is why it is the right OAuth redirect target.
 
 **Backoff** — waiting progressively longer between retries. Exponential backoff
 doubles the delay each attempt; **jitter** randomises it so many clients do not
@@ -49,6 +54,9 @@ commit.
 
 **Commit-ish** — anything resolvable to a commit: hash, branch, tag, `HEAD~2`.
 
+**Composable** — a function that emits UI in Jetpack Compose. Called again when
+its inputs change; must contain no side effects.
+
 **Conditional request** — a request carrying a validator (`If-None-Match`,
 `If-Modified-Since`) so the server can answer `304 Not Modified` instead of
 resending the body.
@@ -56,15 +64,28 @@ resending the body.
 **Confidential client** — an OAuth client that can keep a secret, because it
 runs on a server you control. The opposite of a public client.
 
+**Coroutine** — work that can suspend without blocking a thread. Belongs to a
+scope, so cancelling the scope cancels the work.
+
 **Cursor** — an opaque token marking a position in a result set, used for
 pagination that stays correct while the collection is being written to.
 
 **DAG** — directed acyclic graph. The shape of Git history.
 
+**DAO** — data access object. In Room, the annotated interface whose methods
+map to SQL queries.
+
+**Deep link** — a URI that opens a specific destination inside an app, skipping
+the screens that would normally precede it.
+
 **Detached HEAD** — HEAD points at a commit instead of a branch.
 
 **Device authorization flow** — an OAuth grant for input-constrained clients:
 the device shows a code, the user approves it on another device (RFC 8628).
+
+**Doze** — the state an idle Android device enters with the screen off, batching
+deferred work into widening maintenance windows and suspending network access
+between them.
 
 **ETag** — an opaque version identifier for a representation of a resource.
 Strong means byte-identical; weak (`W/` prefix) means semantically equivalent.
@@ -75,6 +96,13 @@ ancestor.
 **Fetch** — download objects and update remote-tracking refs. Changes nothing
 local.
 
+**Flow** — a cold stream of values in Kotlin: nothing runs until something
+collects it, and each collector gets its own execution.
+
+**Foreground service** — a service with a persistent notification, exempt from
+most background limits. For work the user started and can see, never for
+polling.
+
 **Fork** — a server-side copy of a repository under a different owner. Not a Git
 concept; a forge concept.
 
@@ -82,6 +110,9 @@ concept; a forge concept.
 One endpoint, no HTTP caching, cost metered by query complexity.
 
 **HEAD** — pointer to the current branch (or commit, if detached).
+
+**Hilt** — the dependency-injection framework Google documents for Android,
+built on Dagger, with hooks for ViewModels and Workers.
 
 **HMAC** — a keyed hash proving a message came from a holder of the shared
 secret and was not modified. How webhook deliveries are verified.
@@ -146,6 +177,9 @@ mandatory and no client secret may be embedded.
 
 **Rebase** — replay commits onto a new base, creating new commits.
 
+**Recomposition** — Compose calling a composable again because its inputs
+changed. Can happen many times per frame, in any order, and be abandoned.
+
 **Ref** — a named pointer to a commit. Under `refs/`.
 
 **Refspec** — `<src>:<dst>` mapping controlling fetch and push.
@@ -175,6 +209,9 @@ intersection of the scope, the user's grant and the user's own rights.
 **Staging** — adding changes to the index for the next commit.
 
 **Stash** — temporary storage for uncommitted changes.
+
+**StateFlow** — a hot Flow that always holds a current value and replays it to
+new collectors. The usual carrier for screen state; wrong for one-time events.
 
 **Submodule** — a pointer to a specific commit in another repository.
 
@@ -208,6 +245,7 @@ At-least-once, unordered, and unauthenticated until you verify the signature.
 - [[Git - Mental Model]]
 - [[Git - Internals]]
 - [[Web-APIs]]
+- [[Android]]
 
 ## Sources
 

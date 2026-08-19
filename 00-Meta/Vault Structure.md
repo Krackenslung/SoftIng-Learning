@@ -16,6 +16,7 @@ updated: 2026-08-14
 20-GitHub/        GitHub platform, grouped by area
 30-Bridge/        Where Git and GitHub concepts meet
 40-Web-APIs/      HTTP and API fundamentals the GitHub notes build on
+60-Android/       The Android client that consumes them
 90-Reference/     Lookup material — cookbook, cheat sheet, glossary
 95-Projects/      Applied notes (dashboard specs)
 _attachments/     Images, canvases
@@ -32,6 +33,7 @@ Git - <Topic>.md
 GitHub - <Topic>.md
 Bridge - <Topic>.md
 API - <Topic>.md
+Android - <Topic>.md
 ```
 
 This prevents collisions (`Git - Merging` vs `GitHub - Pull Requests` both cover
@@ -42,8 +44,8 @@ merging) and makes link autocomplete unambiguous.
 | Key | Type | Values |
 |---|---|---|
 | `title` | string | Display title (no domain prefix) |
-| `domain` | string | `git` · `github` · `bridge` · `reference` · `api` |
-| `section` | string | Ordering key — `01`–`25`, `41`–`53`, `B1`–`B7` |
+| `domain` | string | `git` · `github` · `bridge` · `reference` · `api` · `android` |
+| `section` | string | Ordering key — `01`–`25`, `41`–`53`, `61`–`76`, `B1`–`B8` |
 | `category` | string | Sub-grouping within the domain |
 | `difficulty` | string | `beginner` · `intermediate` · `advanced` |
 | `danger` | string | `none` · `low` · `medium` · `high` |
@@ -62,7 +64,7 @@ two fields that make the vault queryable rather than just browsable.
 
 1. Copy the matching template: [[Concept]], [[Command]] or [[Hub]]
 2. Fill the frontmatter completely — partial frontmatter breaks the hub queries
-3. Link it from the relevant hub ([[Git]], [[GitHub]] or [[Web-APIs]])
+3. Link it from the relevant hub ([[Git]], [[GitHub]], [[Web-APIs]] or [[Android]])
 4. Add at least two `related` links, and add the reverse link in those notes
 5. Cite a primary source — git-scm.com or docs.github.com, not a blog
 

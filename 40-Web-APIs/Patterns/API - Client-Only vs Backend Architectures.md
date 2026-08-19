@@ -19,6 +19,9 @@ related:
   - "[[API - Caching and ETags]]"
   - "[[API - Token Storage on Public Clients]]"
   - "[[Dev Dashboard - API Map]]"
+  - "[[Android - Layered Architecture]]"
+  - "[[Android - WorkManager]]"
+  - "[[Android - Offline First and Room]]"
 sources:
   - https://datatracker.ietf.org/doc/html/rfc8252
   - https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
@@ -169,6 +172,9 @@ much easier than the reverse, which is another reason to start at A.
 - [[API - Caching and ETags]]
 - [[API - Token Storage on Public Clients]]
 - [[Dev Dashboard - API Map]]
+- [[Android - Layered Architecture]]
+- [[Android - WorkManager]]
+- [[Android - Offline First and Room]]
 
 ## Sources
 

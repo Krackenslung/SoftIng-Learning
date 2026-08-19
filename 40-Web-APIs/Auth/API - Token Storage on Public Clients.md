@@ -19,6 +19,7 @@ related:
   - "[[API - Client-Only vs Backend Architectures]]"
   - "[[GitHub - Authentication]]"
   - "[[Bridge - Auth SSH HTTPS and Tokens]]"
+  - "[[Android - Keystore and Secure Storage]]"
 sources:
   - https://datatracker.ietf.org/doc/html/rfc6749#section-2.1
   - https://datatracker.ietf.org/doc/html/rfc8252
@@ -190,6 +191,7 @@ API name from this note reaches the planned `60-Android` notes:
 - [[API - Client-Only vs Backend Architectures]]
 - [[GitHub - Authentication]]
 - [[Bridge - Auth SSH HTTPS and Tokens]]
+- [[Android - Keystore and Secure Storage]]
 
 ## Sources
 

@@ -19,6 +19,7 @@ related:
   - "[[GitHub - Rate Limits]]"
   - "[[API - Rate Limiting Strategies]]"
   - "[[API - Client-Only vs Backend Architectures]]"
+  - "[[Android - Networking]]"
 sources:
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/ETag
   - https://datatracker.ietf.org/doc/html/rfc9111
@@ -158,6 +159,7 @@ allow. See [[GitHub - Rate Limits]] and [[GitHub - REST API]].
 - [[GitHub - Rate Limits]]
 - [[API - Rate Limiting Strategies]]
 - [[API - Client-Only vs Backend Architectures]]
+- [[Android - Networking]]
 
 ## Sources
 

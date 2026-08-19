@@ -45,6 +45,8 @@ it from a local clone or must call the API.
 - [[GitHub - Rate Limits]] — the constraint that shapes the architecture
 - [[Web-APIs]] — the generic HTTP layer: ETags, cursors, OAuth, JWT, HMAC
 - [[Bridge - GitHub API Conventions]] — where GitHub deviates from generic REST
+- [[Bridge - GitHub API on Android]] — and how it changes again on a phone
+- [[Android]] — the client that consumes all of it
 
 ## Security
 - [[GitHub - Code and Secret Scanning]]

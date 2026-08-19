@@ -18,6 +18,9 @@ related:
   - "[[Android - Background Limits and Doze]]"
   - "[[API - Idempotency and Retries]]"
   - "[[Android - Dependency Injection]]"
+  - "[[Android - Coroutines and Flow]]"
+  - "[[Android - App Lifecycle]]"
+  - "[[Bridge - GitHub API on Android]]"
 sources:
   - https://developer.android.com/topic/libraries/architecture/workmanager
   - https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work
@@ -176,6 +179,9 @@ data is from* rather than assume it is current — see
 - [[Android - Background Limits and Doze]]
 - [[API - Idempotency and Retries]]
 - [[Android - Dependency Injection]]
+- [[Android - Coroutines and Flow]]
+- [[Android - App Lifecycle]]
+- [[Bridge - GitHub API on Android]]
 
 ## Sources
 

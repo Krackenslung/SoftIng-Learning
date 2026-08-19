@@ -18,6 +18,7 @@ related:
   - "[[GitHub - REST API]]"
   - "[[GitHub - GraphQL API]]"
   - "[[Bridge - GitHub API Conventions]]"
+  - "[[Android - Paging]]"
 sources:
   - https://datatracker.ietf.org/doc/html/rfc8288
   - https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api
@@ -164,6 +165,7 @@ request count — see [[API - REST vs GraphQL]] and [[GitHub - GraphQL API]].
 - [[GitHub - REST API]]
 - [[GitHub - GraphQL API]]
 - [[Bridge - GitHub API Conventions]]
+- [[Android - Paging]]
 
 ## Sources
 

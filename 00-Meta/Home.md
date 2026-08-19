@@ -21,6 +21,7 @@ updated: 2026-08-14
 | 🐙 **Learning GitHub** | [[GitHub - GitHub vs Git]] first, then [[GitHub]] |
 | 🚨 **Something broke** | [[Git - Undo Cookbook]] |
 | 🔌 **Building an integration** | [[Web-APIs]], [[GitHub - REST API]], [[GitHub - Rate Limits]] |
+| 📱 **Building the Android client** | [[Android]] → [[API - Client-Only vs Backend Architectures]] |
 | 📋 **Quick lookup** | [[Git - Cheat Sheet]], [[Glossary]] |
 
 ## Bridge notes
@@ -32,6 +33,7 @@ updated: 2026-08-14
 - [[Bridge - Actions vs Git Hooks]]
 - [[Bridge - Auth SSH HTTPS and Tokens]]
 - [[Bridge - GitHub API Conventions]]
+- [[Bridge - GitHub API on Android]]
 
 ## Projects
 

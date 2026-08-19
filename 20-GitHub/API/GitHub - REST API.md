@@ -22,6 +22,7 @@ related:
   - "[[API - Caching and ETags]]"
   - "[[API - Pagination Patterns]]"
   - "[[API - Idempotency and Retries]]"
+  - "[[Android - Networking]]"
 sources:
   - https://docs.github.com/en/rest
   - https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api
@@ -118,6 +119,7 @@ GET /rate_limit                                    budget (free — no quota cos
 - [[API - Caching and ETags]]
 - [[API - Pagination Patterns]]
 - [[API - Idempotency and Retries]]
+- [[Android - Networking]]
 
 ## Sources
 

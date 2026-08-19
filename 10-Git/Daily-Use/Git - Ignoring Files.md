@@ -13,6 +13,7 @@ commands:
 related:
   - "[[Git - Setup and Config]]"
   - "[[Git - Submodules and LFS]]"
+  - "[[Android - Project Structure]]"
 sources:
   - https://git-scm.com/docs/gitignore
   - https://git-scm.com/docs/gitattributes
@@ -107,6 +108,7 @@ remove it from history. See §12.10.
 
 - [[Git - Setup and Config]]
 - [[Git - Submodules and LFS]]
+- [[Android - Project Structure]]
 
 ## Sources
 

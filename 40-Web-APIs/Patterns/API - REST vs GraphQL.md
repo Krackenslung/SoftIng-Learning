@@ -19,6 +19,7 @@ related:
   - "[[GitHub - GraphQL API]]"
   - "[[GitHub - REST API]]"
   - "[[API - JSON YAML and TOML]]"
+  - "[[Android - Networking]]"
 sources:
   - https://graphql.org/learn/
   - https://datatracker.ietf.org/doc/html/rfc9110
@@ -141,6 +142,7 @@ and REST for everything else, which is how most GitHub integrations end up.
 - [[GitHub - GraphQL API]]
 - [[GitHub - REST API]]
 - [[API - JSON YAML and TOML]]
+- [[Android - Networking]]
 
 ## Sources
 

@@ -20,6 +20,7 @@ related:
   - "[[GitHub - Pull Requests]]"
   - "[[GitHub - Actions]]"
   - "[[API - Pagination Patterns]]"
+  - "[[Android - Android Studio]]"
 sources:
   - https://cli.github.com/manual/
   - https://docs.github.com/en/github-cli
@@ -93,6 +94,7 @@ a local dev environment without minting a separate PAT.
 - [[GitHub - Pull Requests]]
 - [[GitHub - Actions]]
 - [[API - Pagination Patterns]]
+- [[Android - Android Studio]]
 
 ## Sources
 

@@ -20,6 +20,7 @@ related:
   - "[[Bridge - Actions vs Git Hooks]]"
   - "[[GitHub - Branch Protection and Rulesets]]"
   - "[[API - JSON YAML and TOML]]"
+  - "[[Android - Project Structure]]"
 sources:
   - https://docs.github.com/en/actions
   - https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
@@ -129,6 +130,7 @@ permissions:
 - [[Bridge - Actions vs Git Hooks]]
 - [[GitHub - Branch Protection and Rulesets]]
 - [[API - JSON YAML and TOML]]
+- [[Android - Project Structure]]
 
 ## Sources
 

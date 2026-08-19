@@ -57,6 +57,9 @@ deviates from the generic behaviour described here, that divergence lives in
 
 - [[Bridge - GitHub API Conventions]] — GraphQL 200-with-errors, 404-not-403,
   search ceilings, node points
+- [[Bridge - GitHub API on Android]] — polling instead of webhooks, the cached
+  `304`, Custom Tabs instead of a server redirect
+- [[Android]] — the client that implements everything here
 - [[GitHub - REST API]] · [[GitHub - GraphQL API]] · [[GitHub - Webhooks]] ·
   [[GitHub - Rate Limits]] · [[GitHub - Authentication]]
 

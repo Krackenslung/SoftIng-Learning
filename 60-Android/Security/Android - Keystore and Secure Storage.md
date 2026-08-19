@@ -17,6 +17,7 @@ related:
   - "[[API - OAuth 2.0 Flows]]"
   - "[[Android - Navigation]]"
   - "[[Android - Networking]]"
+  - "[[Bridge - GitHub API on Android]]"
 sources:
   - https://developer.android.com/privacy-and-security/keystore
   - https://developer.android.com/privacy-and-security/cryptography
@@ -198,6 +199,7 @@ about the API's quality; it is that neither encrypts anything by itself.
 - [[API - OAuth 2.0 Flows]]
 - [[Android - Navigation]]
 - [[Android - Networking]]
+- [[Bridge - GitHub API on Android]]
 
 ## Sources
 

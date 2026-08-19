@@ -17,6 +17,8 @@ related:
   - "[[API - REST vs GraphQL]]"
   - "[[GitHub - Actions]]"
   - "[[GitHub - Actions Advanced]]"
+  - "[[Android - Networking]]"
+  - "[[Android - Gradle and AGP]]"
 sources:
   - https://datatracker.ietf.org/doc/html/rfc8259
   - https://yaml.org/spec/1.2.2/
@@ -179,6 +181,8 @@ triggers. Quoting the key (`"on":`) is valid YAML and removes the ambiguity.
 - [[API - REST vs GraphQL]]
 - [[GitHub - Actions]]
 - [[GitHub - Actions Advanced]]
+- [[Android - Networking]]
+- [[Android - Gradle and AGP]]
 
 ## Sources
 

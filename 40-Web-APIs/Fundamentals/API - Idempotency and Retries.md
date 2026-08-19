@@ -17,6 +17,8 @@ related:
   - "[[API - Rate Limiting Strategies]]"
   - "[[API - Webhooks vs Polling]]"
   - "[[GitHub - REST API]]"
+  - "[[Android - WorkManager]]"
+  - "[[Android - Coroutines and Flow]]"
 sources:
   - https://datatracker.ietf.org/doc/html/rfc9110#section-9.2.2
   - https://developer.mozilla.org/en-US/docs/Glossary/Idempotent
@@ -162,6 +164,8 @@ precisely when a dependency is least able to take it. Two controls bound that:
 - [[API - Rate Limiting Strategies]]
 - [[API - Webhooks vs Polling]]
 - [[GitHub - REST API]]
+- [[Android - WorkManager]]
+- [[Android - Coroutines and Flow]]
 
 ## Sources
 

@@ -74,6 +74,7 @@ where your code is hosted — for the platform layer, see [[GitHub]].
 - [[Bridge - Actions vs Git Hooks]]
 - [[Bridge - Auth SSH HTTPS and Tokens]]
 - [[Bridge - GitHub API Conventions]]
+- [[Bridge - GitHub API on Android]]
 
 ---
 

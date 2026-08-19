@@ -19,6 +19,8 @@ related:
   - "[[API - REST vs GraphQL]]"
   - "[[API - Token Storage on Public Clients]]"
   - "[[Bridge - GitHub API on Android]]"
+  - "[[Android - Paging]]"
+  - "[[Android - Dependency Injection]]"
 sources:
   - https://developer.android.com/develop/connectivity/network-ops/connecting
   - https://square.github.io/okhttp/
@@ -182,6 +184,8 @@ indistinguishable to the user.
 - [[API - REST vs GraphQL]]
 - [[API - Token Storage on Public Clients]]
 - [[Bridge - GitHub API on Android]]
+- [[Android - Paging]]
+- [[Android - Dependency Injection]]
 
 ## Sources
 

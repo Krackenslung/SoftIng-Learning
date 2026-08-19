@@ -18,6 +18,8 @@ related:
   - "[[API - Caching and ETags]]"
   - "[[GitHub - Webhooks]]"
   - "[[API - Client-Only vs Backend Architectures]]"
+  - "[[Android - WorkManager]]"
+  - "[[Android - Background Limits and Doze]]"
 sources:
   - https://docs.github.com/en/webhooks/about-webhooks
   - https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api
@@ -152,6 +154,8 @@ keeps it true.
 - [[API - Caching and ETags]]
 - [[GitHub - Webhooks]]
 - [[API - Client-Only vs Backend Architectures]]
+- [[Android - WorkManager]]
+- [[Android - Background Limits and Doze]]
 
 ## Sources
 

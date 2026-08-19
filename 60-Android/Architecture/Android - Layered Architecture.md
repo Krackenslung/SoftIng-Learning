@@ -17,6 +17,7 @@ related:
   - "[[Android - Offline First and Room]]"
   - "[[Android - Dependency Injection]]"
   - "[[Android - Networking]]"
+  - "[[Android - Jetpack Compose]]"
 sources:
   - https://developer.android.com/topic/architecture
   - https://developer.android.com/topic/architecture/data-layer
@@ -144,6 +145,7 @@ boundary, so the mistake cannot propagate — see
 - [[Android - Offline First and Room]]
 - [[Android - Dependency Injection]]
 - [[Android - Networking]]
+- [[Android - Jetpack Compose]]
 
 ## Sources
 

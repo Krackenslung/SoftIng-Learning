@@ -86,6 +86,16 @@ Version numbers and library status must be checked here, never assumed.
 | Android developers | <https://developer.android.com> |
 | Android Keystore system | <https://developer.android.com/privacy-and-security/keystore> |
 | WorkManager | <https://developer.android.com/topic/libraries/architecture/workmanager> |
+| Jetpack Compose | <https://developer.android.com/develop/ui/compose> |
+| Room | <https://developer.android.com/training/data-storage/room> |
+| Paging 3 | <https://developer.android.com/topic/libraries/architecture/paging/v3-overview> |
+| Kotlin coroutines on Android | <https://developer.android.com/kotlin/coroutines> |
+| Hilt | <https://developer.android.com/training/dependency-injection/hilt-android> |
+| App architecture guide | <https://developer.android.com/topic/architecture> |
+| Doze and App Standby | <https://developer.android.com/training/monitoring-device-state/doze-standby> |
+| App Links | <https://developer.android.com/training/app-links> |
+| OkHttp | <https://square.github.io/okhttp/> |
+| Retrofit | <https://square.github.io/retrofit/> |
 
 ## Conventions & standards
 
