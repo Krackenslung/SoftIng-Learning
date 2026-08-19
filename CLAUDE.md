@@ -28,6 +28,7 @@ polling con `WorkManager`, token en Keystore. Está documentada en
 20-GitHub/        Platform, Collaboration, Automation, API, Security, Extras
 30-Bridge/        Donde Git y GitHub se cruzan
 40-Web-APIs/      Fundamentals, Auth, Patterns, Data-Formats
+60-Android/       Foundations, Architecture, UI, Data, Background, Security
 90-Reference/     Cookbook, troubleshooting, cheat sheet, glosario, sources
 95-Projects/      Especificaciones del dashboard
 _attachments/     Imágenes y canvases
@@ -46,9 +47,11 @@ Git - <Topic>.md
 GitHub - <Topic>.md
 Bridge - <Topic>.md
 API - <Topic>.md
+Android - <Topic>.md
 ```
 
-Los hubs son la excepción: `Git.md`, `GitHub.md`, `Web-APIs.md`, `Home.md`.
+Los hubs son la excepción: `Git.md`, `GitHub.md`, `Web-APIs.md`, `Android.md`,
+`Home.md`.
 
 ## Frontmatter obligatorio
 
@@ -57,8 +60,8 @@ Frontmatter parcial **rompe las consultas Dataview de los hubs**.
 ```yaml
 ---
 title: Caching and ETags          # sin prefijo de dominio
-domain: api                       # git | github | api | bridge | reference | project
-section: "43"                     # clave de orden; "B7" para notas Bridge
+domain: api                       # git | github | api | android | bridge | reference | project
+section: "43"                     # clave de orden; "B8" para notas Bridge
 category: fundamentals            # subgrupo dentro del dominio
 difficulty: intermediate          # beginner | intermediate | advanced
 danger: none                      # none | low | medium | high
@@ -152,24 +155,38 @@ Debe salir limpio antes de dar por terminada cualquier tarea.
 
 ## Estado actual
 
-83 notas. 0 enlaces rotos, 0 huérfanas.
+101 notas. 0 enlaces rotos, 0 huérfanas, 0 sin frontmatter.
 
 | Carpeta | Notas |
 |---|---|
 | 10-Git | 21 + hub |
 | 20-GitHub | 25 + hub |
-| 30-Bridge | 7 |
+| 30-Bridge | 8 |
 | 40-Web-APIs | 15 + hub |
+| 60-Android | 16 + hub |
 | 90-Reference | 5 |
 | 95-Projects | 2 |
 
-## Próximo dominio previsto
+Secciones en uso: `01`–`25` (Git, GitHub, referencia), `41`–`53` más `49a` y
+`52a` (Web-APIs), `61`–`76` (Android), `B1`–`B8` (Bridge).
 
-`60-Android` — el cliente del dashboard. Sale casi entero de lo ya escrito:
-Retrofit/Apollo desde `API - REST vs GraphQL`, WorkManager desde
-`API - Webhooks vs Polling`, Room desde la tabla de caché de
-`Dev Dashboard - Data Model`, Keystore desde
-`API - Token Storage on Public Clients`.
+## Versiones en `60-Android/`
 
-⚠️ El ecosistema Android se mueve mucho más rápido que Git. Cualquier número de
-versión en esas notas hay que contrastarlo con developer.android.com.
+El dominio Android está escrito, con `spec-02-android.md` ejecutado por completo.
+
+⚠️ El ecosistema Android se mueve mucho más rápido que Git o HTTP. **Ninguna
+nota afirma un número de versión**: las 31 marcas `<verify current>` están
+recogidas en `00-Meta/specs/spec-02-android-VERSIONS.md`, pendientes de
+contrastar contra developer.android.com.
+
+La regla sigue vigente para cualquier nota nueva de ese dominio: escribir
+`<verify current>` y añadir su fila al fichero de versiones. Las dos filas que
+sostienen decisiones de arquitectura, y no meros detalles, son el suelo de 15
+minutos de `WorkManager` y el comportamiento de Doze.
+
+Specs ejecutados:
+
+| Spec | Estado |
+|---|---|
+| `spec-01-web-apis-SUPERSEDED.md` | Ejecutado, superado por la Opción A |
+| `spec-02-android.md` | Ejecutado |

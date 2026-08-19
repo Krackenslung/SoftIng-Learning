@@ -1,19 +1,20 @@
 # SoftIng Learning
 
-An [Obsidian](https://obsidian.md) vault documenting **Git**, **GitHub** and the
-**web API fundamentals** that sit underneath them. 83 notes, heavily
-cross-linked, written to be read in any order and to answer a question in one
-hop rather than five.
+An [Obsidian](https://obsidian.md) vault documenting **Git**, **GitHub**, the
+**web API fundamentals** that sit underneath them, and the **Android client**
+that consumes them. 101 notes, heavily cross-linked, written to be read in any
+order and to answer a question in one hop rather than five.
 
 It doubles as the reference material for a GitHub developer dashboard being
-built as a native Android client.
+built as a native Android app with no backend.
 
 ## Opening it
 
 1. Clone the repository.
 2. In Obsidian: **Open folder as vault** → pick the cloned directory.
 3. Enable the **Dataview** community plugin. The hub notes (`Git.md`,
-   `GitHub.md`, `Web-APIs.md`, `Home.md`) build their index tables with it, and
+   `GitHub.md`, `Web-APIs.md`, `Android.md`, `Home.md`) build their index tables
+   with it, and
    without it those sections render as empty code blocks. Everything else is
    plain Markdown and reads fine in any editor.
 
@@ -26,8 +27,9 @@ Start at `00-Meta/Home.md`.
 | `00-Meta/` | 5 | Home, vault conventions, note templates |
 | `10-Git/` | 22 | Git itself: mental model, daily loop, history rewriting, collaboration, investigation, internals |
 | `20-GitHub/` | 26 | The platform: repos, issues, PRs, Actions, the REST and GraphQL APIs, webhooks, security |
-| `30-Bridge/` | 7 | Where Git and GitHub concepts collide and get confused |
+| `30-Bridge/` | 8 | Where Git and GitHub concepts collide and get confused |
 | `40-Web-APIs/` | 16 | HTTP and API fundamentals: status codes, headers, ETags, pagination, idempotency, OAuth, JWT, HMAC, OIDC, rate limiting, data formats |
+| `60-Android/` | 17 | The dashboard client: Gradle, architecture, Compose, Room, Paging, WorkManager, Doze, Keystore |
 | `90-Reference/` | 5 | Cheat sheet, undo cookbook, troubleshooting, glossary, master source list |
 | `95-Projects/` | 2 | Dashboard specifications |
 
