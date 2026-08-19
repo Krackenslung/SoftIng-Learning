@@ -87,10 +87,22 @@ Each of these has bitten real dashboards — details in the linked notes.
 
 ## Sync architecture
 
+There is no backend, so there are no webhooks: a phone has no inbound endpoint
+to deliver them to. Change detection is polling, on three paths with very
+different latencies — see [[API - Client-Only vs Backend Architectures]].
+
 ```
-webhook → verify HMAC → dedupe on X-GitHub-Delivery → enqueue → update cache
-cron (15 min) → reconcile with ETag'd REST reads → repair drift
+app opened      → refresh, conditional → write Room → UI re-emits
+pull-to-refresh → refresh, conditional → write Room → UI re-emits
+WorkManager     → periodic, 15 min floor, deferred by Doze → write Room
 ```
 
-Webhooks alone drift; polling alone burns quota. See [[GitHub - Webhooks]] and
-[[GitHub - Rate Limits]].
+Every read sends its stored `ETag`; a `304` costs no core quota, which is what
+makes polling viable at all. Room is the source of truth the UI observes, so a
+failed sync writes nothing and the screen keeps the last good data instead of
+blanking — see [[Android - Offline First and Room]].
+
+⚠️ Background sync is best-effort, not scheduled. It can be hours stale on an
+idle device, so the UI must show the last successful sync time rather than imply
+the data is current. See [[Android - WorkManager]] and
+[[Android - Background Limits and Doze]].

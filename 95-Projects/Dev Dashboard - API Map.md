@@ -85,12 +85,23 @@ higher, scaling limits and per-repo install scoping.
 
 ## Caching rules
 
-| Data | TTL | Invalidated by |
-|---|---|---|
-| Repo list | 1 h | manual refresh |
-| PR list | 60 s | `pull_request` webhook |
-| Checks | 30 s | `check_run` webhook |
-| Notifications | `X-Poll-Interval` | `PATCH` mark-read |
-| Issues | 5 min | `issues` webhook |
+Nothing here is invalidated by a push. With no backend there is no webhook to
+receive, so every entry is revalidated by a poll — see
+[[API - Client-Only vs Backend Architectures]].
 
-Always send stored `ETag`s — a `304` is free. See [[GitHub - REST API]].
+| Data | Revalidate after, in foreground | Refreshed by |
+|---|---|---|
+| Repo list | 1 h | Manual refresh |
+| PR list | 60 s | App opened, pull-to-refresh, background sync |
+| Checks | 30 s | App opened, pull-to-refresh, background sync |
+| Notifications | `X-Poll-Interval` | `PATCH` mark-read, pull-to-refresh |
+| Issues | 5 min | App opened, pull-to-refresh, background sync |
+
+⚠️ Those intervals apply while the app is open. Background sync cannot beat the
+`WorkManager` floor of 15 minutes, and Doze pushes it further out — see
+[[Android - WorkManager]] and [[Android - Background Limits and Doze]].
+
+Always send stored `ETag`s — a `304` is free. On Android, OkHttp resolves it
+into a cached `200`, so quota must be measured from `networkResponse` rather
+than `response.code` — see [[Bridge - GitHub API on Android]] and
+[[GitHub - REST API]].
